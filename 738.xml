@@ -491,7 +491,7 @@
         <channel name="Roll">
 
             <summer name="Roll Trim Sum">
-                <input>fcs/aileron-cmd-norm</input>
+                <input>/controls/flight/aileron-final</input>
                 <input>fcs/roll-trim-cmd-norm</input>
                 <clipto>
                     <min>-1</min>

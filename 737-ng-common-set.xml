@@ -273,7 +273,8 @@
       <IAS-SEL type="bool">true</IAS-SEL>
 
       <pitch-mode type="int">0</pitch-mode>
-      <roll-mode type="int">0</roll-mode>
+      <roll-mode type="int">0</roll-mode> <!--  0 - direct control
+                                                1 - CWS -->
 
       <LNAV type="bool">false</LNAV>
       <LNAV-NAV type="bool">false</LNAV-NAV>
