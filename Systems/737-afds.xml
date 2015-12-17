@@ -54,7 +54,7 @@
       </offset>
     </reference>
     <output>
-      <prop>/controls/flight/aileron</prop>
+      <prop>/controls/flight/aileron-ap</prop>
     </output>
     <config>
       <Kp>0.01</Kp>          <!-- proportional gain -->
@@ -81,6 +81,26 @@
       <u_max>0.194285714</u_max>   <!-- maximum output clamp with flaps up (17 degrees of steering wheel) -->
     </config>
   </pi-simple-controller>
+
+  <filter>
+    <type>gain</type>
+    <gain>1</gain>
+    <input>
+      <condition>
+        <not-equals>
+          <property>/autopilot/internal/roll-mode</property>
+          <value>0</value>
+        </not-equals>
+      </condition>
+      <prop>/controls/flight/aileron-ap</prop>
+    </input>
+    <input>
+      <prop>/controls/flight/aileron</prop>
+    </input>
+    <output>
+      <prop>/controls/flight/aileron-final</prop>
+    </output>
+  </filter>
   
  <!-- =============================================================== -->
  <!-- Pitch Axis Modes                                                -->
