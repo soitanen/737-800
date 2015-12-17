@@ -271,6 +271,10 @@
       <CMDB type="bool">false</CMDB>
       <ATArm type="bool">false</ATArm>
       <IAS-SEL type="bool">true</IAS-SEL>
+
+      <pitch-mode type="int">0</pitch-mode>
+      <roll-mode type="int">0</roll-mode>
+
       <LNAV type="bool">false</LNAV>
       <LNAV-NAV type="bool">false</LNAV-NAV>
       <LNAV-NAV-armed type="bool">false</LNAV-NAV-armed>
