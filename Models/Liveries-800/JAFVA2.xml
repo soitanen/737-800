@@ -4,8 +4,8 @@
 <sim>
     <model>
         <livery>                     
-            <name type="string">Alaska Airlines(New Livery)</name>
-            <texture>Liveries-800/N563as.png</texture>            
+            <name type="string">JAFVA (Ver 2)</name>
+            <texture>Liveries-800/JAFVA2.png</texture>            
         </livery>        
     </model>
 </sim>

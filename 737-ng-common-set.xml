@@ -237,6 +237,61 @@
         </binding>
       </key>
 
+      <key n="113">
+        <name>q</name>
+        <desc>Turn tiller left</desc>
+        <binding>
+          <command>nasal</command>
+          <script>
+            boeing737.tiller_left();
+          </script>
+        </binding>
+      </key>
+
+      <key n="81">
+        <name>Q</name>
+        <desc>Turn tiller left small</desc>
+        <binding>
+          <command>nasal</command>
+          <script>
+            boeing737.tiller_left_small();
+          </script>
+        </binding>
+      </key>
+
+      <key n="101">
+        <name>e</name>
+        <desc>Turn tiller right</desc>
+        <binding>
+          <command>nasal</command>
+          <script>
+            boeing737.tiller_right();
+          </script>
+        </binding>
+      </key>
+
+      <key n="69">
+        <name>E</name>
+        <desc>Turn tiller right small</desc>
+        <binding>
+          <command>nasal</command>
+          <script>
+            boeing737.tiller_right_small();
+          </script>
+        </binding>
+      </key>
+
+      <key n="119">
+        <name>w</name>
+        <desc>Turn tiller to center</desc>
+        <binding>
+          <command>nasal</command>
+          <script>
+            boeing737.tiller_center();
+          </script>
+        </binding>
+      </key>
+
     </keyboard>
   </input>
 
@@ -307,6 +362,7 @@
       <wp-change-check-period type="double">10</wp-change-check-period>
 
       <stab-autotrim type="bool">1</stab-autotrim>
+      <elevator type="double">0</elevator>
     </internal>
 
     <display>
@@ -366,7 +422,7 @@
         <flap-lrs type="double">0</flap-lrs>
         <slats-cmd type="double">0</slats-cmd>
         <slats-pos type="double">0</slats-pos>
-        <stabilizer-pos-unit type="double">3</stabilizer-pos-unit>
+        <stabilizer-pos-unit type="double">5</stabilizer-pos-unit>
         <brake-left-cmd type="double">0</brake-left-cmd>
         <brake-right-cmd type="double">0</brake-right-cmd>
         <autobrake>
@@ -376,7 +432,7 @@
           <start-time-sec type="double">0</start-time-sec>
         </autobrake>
         <stabilizer>
-          <stab-target>3</stab-target>
+          <stab-target>5</stab-target>
           <trim-rate type="double">0</trim-rate>
         </stabilizer>
       </fcs>
