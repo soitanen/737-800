@@ -212,7 +212,7 @@
     </output>
     <config>
       <Kp>-1.2</Kp>          <!-- proportional gain -->
-      <Ki>-0.3</Ki>          <!-- integral gain -->
+      <Ki>-0.6</Ki>          <!-- integral gain -->
       <u_min>/autopilot/settings/max-authority-neg</u_min> <!-- minimum output clamp -->
       <u_max>/autopilot/settings/max-authority-pos</u_max>   <!-- maximum output clamp -->
     </config>
@@ -285,7 +285,7 @@
 
   <filter>
     <type>gain</type>
-    <gain>0.30</gain>
+    <gain>0.10</gain>
     <input>
       <property>/autopilot/settings/max-authority-pos</property>
     </input>
@@ -296,7 +296,7 @@
 
   <filter>
     <type>gain</type>
-    <gain>0.30</gain>
+    <gain>0.10</gain>
     <input>
       <property>/autopilot/settings/max-authority-neg</property>
     </input>
@@ -309,7 +309,7 @@
 
   <filter>
     <type>gain</type>
-    <gain>0.12</gain>
+    <gain>0.02</gain>
     <input>
       <property>/autopilot/settings/max-authority-pos</property>
     </input>
@@ -320,7 +320,7 @@
 
   <filter>
     <type>gain</type>
-    <gain>0.12</gain>
+    <gain>0.02</gain>
     <input>
       <property>/autopilot/settings/max-authority-neg</property>
     </input>
@@ -343,34 +343,62 @@
       </condition>
     </enable>
     <input>
-      <or>
-        <greater-than>
-          <property>/controls/flight/elevator</property>
-          <property>/autopilot/settings/max-authority-pos-ten-percent</property>
-        </greater-than>
-        <less-than>
-          <property>/controls/flight/elevator</property>
-          <property>/autopilot/settings/max-authority-neg-ten-percent</property>
-        </less-than>
-      </or>
+      <greater-than>
+        <property>/controls/flight/elevator</property>
+        <property>/autopilot/settings/max-authority-pos-ten-percent</property>
+      </greater-than>
     </input>
-    <output>/b737/helpers/elevator-cmd-gr-10</output>
+    <output>/b737/helpers/elevator-cmd-gr-10-pos</output>
+  </logic>
+
+  <logic>
+    <enable>
+      <condition>
+        <and>
+          <or>
+            <property>/autopilot/internal/CMDA</property>
+            <property>/autopilot/internal/CMDB</property>
+          </or>
+          <property>/autopilot/internal/PITCH-ACTIVE</property>
+        </and>
+      </condition>
+    </enable>
+    <input>
+      <less-than>
+        <property>/controls/flight/elevator</property>
+        <property>/autopilot/settings/max-authority-neg-ten-percent</property>
+      </less-than>
+    </input>
+    <output>/b737/helpers/elevator-cmd-gr-10-neg</output>
   </logic>
 
   <filter>
     <type>moving-average</type>
     <samples>480</samples>
-    <input>/b737/helpers/elevator-cmd-gr-10</input>
-    <output>/b737/helpers/elevator-cmd-av-4</output> <!-- average for 4 seconds -->
+    <input>/b737/helpers/elevator-cmd-gr-10-pos</input>
+    <output>/b737/helpers/elevator-cmd-av-4-pos</output> <!-- average for 4 seconds -->
+  </filter>
+
+  <filter>
+    <type>moving-average</type>
+    <samples>480</samples>
+    <input>/b737/helpers/elevator-cmd-gr-10-neg</input>
+    <output>/b737/helpers/elevator-cmd-av-4-neg</output> <!-- average for 4 seconds -->
   </filter>
 
   <logic>
     <input>
       <and>
-        <greater-than>
-          <property>/b737/helpers/elevator-cmd-av-4</property>
-          <value>0.75</value>
-        </greater-than>
+        <or>
+          <greater-than>
+            <property>/b737/helpers/elevator-cmd-av-4-pos</property>
+            <value>0.75</value>
+          </greater-than>
+          <greater-than>
+            <property>/b737/helpers/elevator-cmd-av-4-neg</property>
+            <value>0.75</value>
+          </greater-than>
+        </or>
         <greater-than>
           <property>/instrumentation/radar-altimeter/radar-altitude-ft</property>
           <value>400</value>
