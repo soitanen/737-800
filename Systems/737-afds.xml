@@ -483,7 +483,7 @@
       <!-- unfiltered derivative error -->
       <Ti>10.0</Ti>       <!-- integrator time -->
       <Td>0.00001</Td>    <!-- derivator time -->
-      <u_min>22.0</u_min>  <!-- minimum output clamp -->
+      <u_min>19.76</u_min>  <!-- minimum output clamp -->
       <u_max>/autopilot/settings/max-n1</u_max>  <!-- maximum output clamp -->
     </config>
   </pid-controller>
@@ -547,33 +547,16 @@
           <property>/autopilot/internal/THROTTLE-ACTIVE</property>
         </and>
       </condition>
-      <value>.233</value>
+      <value>0.233</value> <!-- 13.5 deg/s TLA. Max TLA = 58 deg -->
     </max-rate-of-change>
     <max-rate-of-change>
       <condition>
         <and>
-          <less-than>
-            <property>/autopilot/internal/at-throttle</property>
-            <property>/fdm/jsbsim/fcs/throttle-pos-norm[0]</property>
-          </less-than>
           <property>/autopilot/internal/SPD</property>
           <property>/autopilot/internal/THROTTLE-ACTIVE</property>
         </and>
       </condition>
-      <value>0.0468</value>
-    </max-rate-of-change>
-    <max-rate-of-change>
-      <condition>
-        <and>
-          <greater-than-equals>
-            <property>/autopilot/internal/at-throttle</property>
-            <property>/fdm/jsbsim/fcs/throttle-pos-norm[0]</property>
-          </greater-than-equals>
-          <property>/autopilot/internal/SPD</property>
-          <property>/autopilot/internal/THROTTLE-ACTIVE</property>
-        </and>
-      </condition>
-      <value>.0932</value>
+      <value>0.0517</value> <!-- 3 deg/s TLA -->
     </max-rate-of-change>
     <max-rate-of-change>10</max-rate-of-change>
     <input>
@@ -1110,5 +1093,113 @@
       <prop>/autopilot/settings/target-speed-kt</prop>
     </output>
   </filter>
+
+<!-- State machine part -->
+
+  <filter> <!-- physical and logical throttle levers difference-->
+    <type>gain</type>
+    <input>
+      <expression>
+        <abs>
+          <difference>
+            <property>/controls/engines/engine[0]/throttle</property>
+            <property>/autopilot/internal/servo-throttle[0]</property>
+          </difference>
+        </abs>
+      </expression>
+    </input>
+    <output>
+      <prop>/autopilot/at/thr-diff</prop>
+    </output>
+  </filter>
+
+  <state-machine>
+    <branch>/autopilot/at</branch>
+    <state>
+      <name>OFF</name>
+    </state>
+    <state>
+      <name>ARM</name>
+    </state>
+    <state>
+      <name>MCP SPD</name>
+    </state>
+    <state>
+      <name>FMC SPD</name>
+    </state>
+    <state>
+      <name>N1</name>
+    </state>
+    <state>
+      <name>THR HLD</name>
+    </state>
+    <state>
+      <name>RETARD</name>
+    </state>
+    <state>
+      <name>GA</name>
+    </state>
+    <state>
+      <name>regain arm</name>
+    </state>
+    <state>
+      <name>regain off</name>
+    </state>
+    <transition>
+      <source>OFF</source>
+      <target>ARM</target>
+      <condition>
+        <property>/autopilot/internal/SPD</property>
+      </condition>
+    </transition>
+    <transition>
+      <source>ARM</source>
+      <source>MCP SPD</source>
+      <source>FMC SPD</source>
+      <source>N1</source>
+      <source>THR HLD</source>
+      <source>RETARD</source>
+      <source>GA</source>
+      <source>regain arm</source>
+      <target>regain off</target>
+      <condition>
+        <not><property>/autopilot/internal/SPD</property></not>
+      </condition>
+    </transition>
+    <transition>
+      <source>regain off</source>
+      <target>OFF</target>
+      <condition>
+        <less-than>
+          <property>/autopilot/at/thr-diff</property>
+          <value>0.03</value>
+        </less-than>
+      </condition>
+    </transition>
+    <transition>
+      <source>ARM</source>
+      <target>MCP SPD</target>
+      <condition>
+        <property>/autopilot/buttons/speed</property>
+      </condition>
+      <binding>
+        <command>property-assign</command>
+        <property>/autopilot/buttons/speed</property>
+        <value>0</value>
+      </binding>
+    </transition>
+    <transition>
+      <source>MCP SPD</source>
+      <target>regain arm</target>
+      <condition>
+        <property>/autopilot/buttons/speed</property>
+      </condition>
+      <binding>
+        <command>property-assign</command>
+        <property>/autopilot/buttons/speed</property>
+        <value>0</value>
+      </binding>
+    </transition>
+  </state-machine>
 
 </PropertyList>

@@ -23,46 +23,13 @@
             <pitch-deg>0</pitch-deg>
         </offsets>
     </model>
-    <!--<animation>
-        <type>rotate</type>
-        <object-name>CPT-COURSE</object-name>
-         <property>/instrumentation/nav[0]/radials/selected-deg</property> 
-          <factor>-5.0</factor>         
-        <center>
-            <x-m>0.033</x-m>
-            <y-m>-0.222</y-m>
-            <z-m>0.0231</z-m>
-        </center>
-        <axis>
-            <x>1</x>
-            <y>0</y>
-            <z>0</z>
-        </axis>
-    </animation> 
-
-     <animation>
-        <type>rotate</type>
-        <object-name>HDG-SEL</object-name>
-        <property>/autopilot/settings/heading-bug-deg</property> 
-          <factor>-5.0</factor>         
-        <center>
-            <x-m>0.033</x-m>
-            <y-m>-0.047</y-m>
-            <z-m>0.025</z-m>
-        </center>
-        <axis>
-            <x>1</x>
-            <y>0</y>
-            <z>0</z>
-        </axis>
-    </animation>-->
 
      <animation>
         <type>rotate</type>
         <object-name>BANK</object-name>
-        <property>/controls/autoflight/bank-angle-select</property>          
-          <factor>-5.8</factor> 
-         <offset-deg>240</offset-deg>         
+        <property>/controls/autoflight/bank-angle-select</property>
+          <factor>-5.8</factor>
+         <offset-deg>240</offset-deg>
         <center>
             <x-m>0.033</x-m>
             <y-m>-0.047</y-m>
@@ -78,8 +45,8 @@
      <animation>
         <type>rotate</type>
         <object-name>at-arm</object-name>
-         <property>/autopilot/internal/SPD</property> 
-          <factor>-30.0</factor>         
+         <property>/autopilot/internal/SPD</property>
+          <factor>-30.0</factor>
         <center>
             <x-m>0.02</x-m>
             <y-m>-0.17</y-m>
@@ -90,7 +57,7 @@
             <y>1</y>
             <z>0</z>
         </axis>
-    </animation>   
+    </animation>
 
          <animation>
    	<type>textranslate</type>
@@ -142,7 +109,7 @@
        <animation>
    	<type>textranslate</type>
    	 <object-name>ALT-HLD</object-name>
-	 <property>/autopilot/internal/VNAV-ALT-light</property>        
+	 <property>/autopilot/internal/VNAV-ALT-light</property>
    	<factor>-0.125</factor>
    	<axis>
     	<x>0</x>
@@ -166,7 +133,7 @@
          <animation>
    	<type>textranslate</type>
    	<object-name>HDG-HLD</object-name>
-	 <property>/autopilot/internal/LNAV-HDG</property>        
+	 <property>/autopilot/internal/LNAV-HDG</property>
    	<factor>-0.125</factor>
    	<axis>
     	<x>0</x>
@@ -178,7 +145,7 @@
           <animation>
    	<type>textranslate</type>
    	 <object-name>APP</object-name>
-	 <property>/autopilot/internal/VNAV-GS-armed</property>        
+	 <property>/autopilot/internal/VNAV-GS-armed</property>
    	<factor>-0.125</factor>
    	<axis>
     	<x>0</x>
@@ -190,14 +157,14 @@
          <animation>
    	<type>textranslate</type>
    	 <object-name>VOR-LOC</object-name>
-	 <property>/autopilot/internal/LNAV-NAV-light</property>        
+	 <property>/autopilot/internal/LNAV-NAV-light</property>
    	<factor>-0.125</factor>
    	<axis>
     	<x>0</x>
      	<y>1</y>
     	 <z>0</z>
    	</axis>
- 	</animation> 
+ 	</animation>
 
          <animation>
    	<type>textranslate</type>
@@ -225,13 +192,13 @@
         <type>textranslate</type>
         <object-name>CRS.1</object-name>
         <property>instrumentation/nav[0]/radials/selected-deg</property>
-        <factor>0.1</factor>         
+        <factor>0.1</factor>
         <axis>
             <x>0</x>
             <y>1</y>
             <z>0</z>
         </axis>
-    </animation> 
+    </animation>
 
      <animation>
         <type>textranslate</type>
@@ -244,7 +211,7 @@
             <y>1</y>
             <z>0</z>
         </axis>
-    </animation> 
+    </animation>
 
      <animation>
         <type>textranslate</type>
@@ -257,19 +224,19 @@
             <y>1</y>
             <z>0</z>
         </axis>
-    </animation>  
+    </animation>
 
      <animation>
         <type>textranslate</type>
         <object-name>FO-CRS.1</object-name>
         <property>instrumentation/nav[1]/radials/selected-deg</property>
-        <factor>0.1</factor>         
+        <factor>0.1</factor>
         <axis>
             <x>0</x>
             <y>1</y>
             <z>0</z>
         </axis>
-    </animation> 
+    </animation>
 
      <animation>
         <type>textranslate</type>
@@ -282,7 +249,7 @@
             <y>1</y>
             <z>0</z>
         </axis>
-    </animation> 
+    </animation>
 
      <animation>
         <type>textranslate</type>
@@ -295,12 +262,12 @@
             <y>1</y>
             <z>0</z>
         </axis>
-    </animation> 
+    </animation>
 
      <animation>
         <type>textranslate</type>
         <object-name>ALT.3</object-name>
-        <property>/autopilot/settings/target-altitude-mcp-ft</property> 
+        <property>/autopilot/settings/target-altitude-mcp-ft</property>
         <factor>0.001</factor>
         <step>100</step>
         <axis>
@@ -308,12 +275,12 @@
             <y>1</y>
             <z>0</z>
         </axis>
-    </animation>  
+    </animation>
 
      <animation>
         <type>textranslate</type>
         <object-name>ALT.4</object-name>
-        <property>/autopilot/settings/target-altitude-mcp-ft</property> 
+        <property>/autopilot/settings/target-altitude-mcp-ft</property>
         <factor>0.0001</factor>
         <step>1000</step>
         <axis>
@@ -321,12 +288,12 @@
             <y>1</y>
             <z>0</z>
         </axis>
-    </animation> 
-  
+    </animation>
+
      <animation>
         <type>textranslate</type>
         <object-name>ALT.5</object-name>
-        <property>/autopilot/settings/target-altitude-mcp-ft</property> 
+        <property>/autopilot/settings/target-altitude-mcp-ft</property>
         <factor>0.00001</factor>
         <step>10000</step>
         <axis>
@@ -339,14 +306,14 @@
     <animation>
         <type>textranslate</type>
         <object-name>HDG.1</object-name>
-        <property>/autopilot/settings/heading-bug-deg</property> 
-        <factor>0.1</factor>         
+        <property>/autopilot/settings/heading-bug-deg</property>
+        <factor>0.1</factor>
         <axis>
             <x>0</x>
             <y>1</y>
             <z>0</z>
         </axis>
-    </animation> 
+    </animation>
 
      <animation>
         <type>textranslate</type>
@@ -359,7 +326,7 @@
             <y>1</y>
             <z>0</z>
         </axis>
-    </animation> 
+    </animation>
 
      <animation>
         <type>textranslate</type>
@@ -686,7 +653,7 @@
             <y>1</y>
             <z>0</z>
         </axis>
-    </animation> 
+    </animation>
 
     <animation>
         <type>textranslate</type>
@@ -699,7 +666,7 @@
             <y>1</y>
             <z>0</z>
         </axis>
-    </animation> 
+    </animation>
 
     <animation>
         <type>textranslate</type>
@@ -712,7 +679,7 @@
             <y>1</y>
             <z>0</z>
         </axis>
-    </animation> 
+    </animation>
 
 
 
@@ -750,7 +717,7 @@
   <action>
     <name>Captains FD switch</name>
    <button>0</button>
-   <repeatable>false</repeatable> 
+   <repeatable>false</repeatable>
    <binding>
     <command>property-toggle</command>
     <property>/instrumentation/flightdirector/fd-left-on</property>
@@ -778,7 +745,7 @@
  </animation>
 
  <!-- Co-Pilots FD Switch -->
- 
+
   <animation>
   <type>pick</type>
   <visible>true</visible>
@@ -786,7 +753,7 @@
   <action>
     <name>Co-Pilots FD switch</name>
    <button>0</button>
-   <repeatable>false</repeatable> 
+   <repeatable>false</repeatable>
    <binding>
     <command>property-toggle</command>
     <property>/instrumentation/flightdirector/fd-right-on</property>
@@ -814,160 +781,244 @@
  </animation>
 
 
-     <animation>
+    <animation>
         <type>pick</type>
         <object-name>CMD-A</object-name>
         <visible>1</visible>
-  <action>
-    <name>Toggle CMDA</name>
-   <button>0</button>
-   <repeatable>false</repeatable>
-    <binding>
-      <command>nasal</command>
-      <script>
-        autopilot737.cmda_button_press();
-      </script>   
-    </binding>
-  </action>
-      </animation>
+        <action>
+            <name>Toggle CMDA</name>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>
+                    autopilot737.cmda_button_press();
+                </script>
+            </binding>
+            <binding>
+                <command>property-assign</command>
+                <property>/autopilot/buttons/cmda</property>
+                <value>1</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>/autopilot/buttons/cmda</property>
+                    <value>0</value>
+                </binding>
+            </mod-up>
+        </action>
+    </animation>
 
-           <animation>
+    <animation>
         <type>pick</type>
         <object-name>CMD-B</object-name>
         <visible>1</visible>
-  <action>
-    <name>Toggle CMDB</name>
-   <button>0</button>
-   <repeatable>false</repeatable>
-    <binding>
-      <command>nasal</command>
-      <script>
-        autopilot737.cmdb_button_press();
-      </script>   
-    </binding>
-  </action>
-      </animation>
+        <action>
+            <name>Toggle CMDB</name>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>
+                    autopilot737.cmdb_button_press();
+                </script>
+            </binding>
+            <binding>
+                <command>property-assign</command>
+                <property>/autopilot/buttons/cmdb</property>
+                <value>1</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>/autopilot/buttons/cmdb</property>
+                    <value>0</value>
+                </binding>
+            </mod-up>
+        </action>
+    </animation>
 
-      <animation>
+    <animation>
         <type>pick</type>
         <object-name>DISENGAGE</object-name>
         <visible>1</visible>
-          <action>
-  <name>AP disengage</name>
-   <button>0</button>
-   <repeatable>false</repeatable>
-    <binding>
-      <command>nasal</command>
-      <script>
-        autopilot737.apdsng_button_press();
-      </script>   
-    </binding>
-  </action>
-      </animation>
+        <action>
+            <name>AP disengage</name>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>
+                    autopilot737.apdsng_button_press();
+                </script>
+            </binding>
+        </action>
+    </animation>
 
-      <animation>
+    <animation>
         <type>pick</type>
         <object-name>at-arm</object-name>
         <visible>1</visible>
-  <action>
-    <name>AT Arm Switch</name>
-   <button>0</button>
-   <repeatable>false</repeatable> 
-   <binding>
-    <command>property-toggle</command>
-    <property>/autopilot/internal/SPD</property>
-    <step>1</step>
-    <min>0></min>
-    <max>1</max>
-    <wrap>true</wrap>
-   </binding>
-  </action>
-      </animation>
+        <action>
+            <name>AT Arm Switch</name>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>/autopilot/internal/SPD</property>
+                <step>1</step>
+                <min>0></min>
+                <max>1</max>
+                <wrap>true</wrap>
+            </binding>
+        </action>
+    </animation>
 
-        <animation>
-  <type>pick</type>
-  <visible>true</visible>
-  <object-name>mach-ias</object-name>
-  <action>
-    <name>CHANGEOVER button</name>
-    <button>0</button>
-    <repeatable>false</repeatable> 
-    <binding>
-      <command>nasal</command>
-      <script>
-        autopilot737.changeover_button_press();
-      </script>   
-    </binding>
-  </action>
- </animation>
+    <animation>
+        <type>pick</type>
+        <visible>true</visible>
+        <object-name>mach-ias</object-name>
+        <action>
+            <name>CHANGEOVER button</name>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>
+                    autopilot737.changeover_button_press();
+                </script>
+            </binding>
+            <binding>
+                <command>property-assign</command>
+                <property>/autopilot/buttons/speed-co</property>
+                <value>1</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>/autopilot/buttons/speed-co</property>
+                    <value>0</value>
+                </binding>
+            </mod-up>
+        </action>
+    </animation>
 
-  <animation>
-  <type>pick</type>
-  <visible>true</visible>
-  <object-name>N1</object-name>
-  <action>
-    <name>Toggle N1</name>
-   <button>0</button>
-   <repeatable>false</repeatable>
-    <binding>
-      <command>nasal</command>
-      <script>
-        autopilot737.n1_button_press();
-      </script>   
-    </binding>
-  </action>
- </animation>
+    <animation>
+        <type>pick</type>
+        <visible>true</visible>
+        <object-name>N1</object-name>
+        <action>
+            <name>Toggle N1</name>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>
+                    autopilot737.n1_button_press();
+                </script>
+            </binding>
+            <binding>
+                <command>property-assign</command>
+                <property>/autopilot/buttons/n1</property>
+                <value>1</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>/autopilot/buttons/n1</property>
+                    <value>0</value>
+                </binding>
+            </mod-up>
+        </action>
+    </animation>
 
-  <animation>
-  <type>pick</type>
-  <visible>true</visible>
-  <object-name>LVL-CHG.</object-name>
-  <action>
-    <name>Toggle LVLCHG</name>
-   <button>0</button>
-   <repeatable>false</repeatable>
-    <binding>
-      <command>nasal</command>
-      <script>
-        autopilot737.lvlchg_button_press();
-      </script>   
-    </binding>
-  </action>
- </animation>
+    <animation>
+        <type>pick</type>
+        <visible>true</visible>
+        <object-name>LVL-CHG.</object-name>
+        <action>
+            <name>Toggle LVLCHG</name>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>
+                    autopilot737.lvlchg_button_press();
+                </script>
+            </binding>
+            <binding>
+                <command>property-assign</command>
+                <property>/autopilot/buttons/lvlchg</property>
+                <value>1</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>/autopilot/buttons/lvlchg</property>
+                    <value>0</value>
+                </binding>
+            </mod-up>
+        </action>
+    </animation>
 
-      <animation>
+    <animation>
         <type>pick</type>
         <object-name>ALT-HLD</object-name>
         <visible>1</visible>
-  <action>
-    <name>Toggle ALT Mode</name>
-   <button>0</button>
-   <repeatable>false</repeatable>
-    <binding>
-      <command>nasal</command>
-      <script>
-        autopilot737.althld_button_press();
-      </script>   
-    </binding>
-  </action>
-     </animation>     
+        <action>
+            <name>Toggle ALT Mode</name>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>
+                    autopilot737.althld_button_press();
+                </script>
+            </binding>
+            <binding>
+                <command>property-assign</command>
+                <property>/autopilot/buttons/althld</property>
+                <value>1</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>/autopilot/buttons/althld</property>
+                    <value>0</value>
+                </binding>
+            </mod-up>
+        </action>
+    </animation>
 
-      <animation>
-  <type>pick</type>
-  <visible>true</visible>
-  <object-name>V/S</object-name>
-  <action>
-    <name>Toggle VS Mode</name>
-   <button>0</button>
-   <repeatable>false</repeatable>
-    <binding>
-      <command>nasal</command>
-      <script>
-        autopilot737.vs_button_press();
-      </script>   
-    </binding>
-  </action>
- </animation>
+    <animation>
+        <type>pick</type>
+        <visible>true</visible>
+        <object-name>V/S</object-name>
+        <action>
+            <name>Toggle VS Mode</name>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>
+                    autopilot737.vs_button_press();
+                </script>
+            </binding>
+            <binding>
+                <command>property-assign</command>
+                <property>/autopilot/buttons/vs</property>
+                <value>1</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>/autopilot/buttons/vs</property>
+                    <value>0</value>
+                </binding>
+            </mod-up>
+        </action>
+    </animation>
 
   <animation>
   <type>knob</type>
@@ -979,7 +1030,7 @@
         <property>/autopilot/settings/vertical-speed-knob</property>
         <factor>1</factor>
         <min>-89</min>
-        <max>70</max>    
+        <max>70</max>
         <wrap>false</wrap>
     </binding>
   </action>
@@ -987,95 +1038,153 @@
   <drag-scale>5</drag-scale>
   </animation>
 
-     <animation>
+    <animation>
         <type>pick</type>
         <object-name>HDG-HLD</object-name>
         <visible>1</visible>
-  <action>
-    <name>Toggle Heading Bug Mode</name>
-   <button>0</button>
-   <repeatable>false</repeatable>
-    <binding>
-      <command>nasal</command>
-      <script>
-        autopilot737.hdg_button_press();
-      </script>   
-    </binding>
-  </action>
+        <action>
+            <name>Toggle Heading Bug Mode</name>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>
+                    autopilot737.hdg_button_press();
+                </script>
+            </binding>
+            <binding>
+                <command>property-assign</command>
+                <property>/autopilot/buttons/hdgsel</property>
+                <value>1</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>/autopilot/buttons/hdgsel</property>
+                    <value>0</value>
+                </binding>
+            </mod-up>
+        </action>
     </animation>
 
     <!-- LNAV button -->
- 
- <animation>
-  <type>pick</type>
-  <visible>true</visible>
-  <object-name>L-NAV</object-name>
-  <action>
-    <name>Toggle LNAV</name>
-   <button>0</button>
-   <repeatable>false</repeatable>
-    <binding>
-      <command>nasal</command>
-      <script>
-        autopilot737.lnav_button_press();
-      </script>   
-    </binding>
-  </action>
- </animation>
+
+    <animation>
+        <type>pick</type>
+        <visible>true</visible>
+        <object-name>L-NAV</object-name>
+        <action>
+            <name>Toggle LNAV</name>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>
+                    autopilot737.lnav_button_press();
+                </script>
+            </binding>
+            <binding>
+                <command>property-assign</command>
+                <property>/autopilot/buttons/lnav</property>
+                <value>1</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>/autopilot/buttons/lnav</property>
+                    <value>0</value>
+                </binding>
+            </mod-up>
+        </action>
+    </animation>
 
     <animation>
         <type>pick</type>
         <object-name>APP</object-name>
         <visible>1</visible>
-  <action>
-    <name>Toggle APP (G/S) Mode</name>
-   <button>0</button>
-   <repeatable>false</repeatable>
-    <binding>
-      <command>nasal</command>
-      <script>
-        autopilot737.app_button_press();
-      </script>   
-    </binding>
-  </action> 
-    </animation>  
+        <action>
+            <name>Toggle APP (G/S) Mode</name>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>
+                    autopilot737.app_button_press();
+                </script>
+            </binding>
+            <binding>
+                <command>property-assign</command>
+                <property>/autopilot/buttons/app</property>
+                <value>1</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>/autopilot/buttons/app</property>
+                    <value>0</value>
+                </binding>
+            </mod-up>
+        </action>
+    </animation>
 
-     <animation>
+    <animation>
         <type>pick</type>
         <object-name>VOR-LOC</object-name>
         <visible>1</visible>
-  <action>
-    <name>Toggle VOR/LOC Mode</name>
-   <button>0</button>
-   <repeatable>false</repeatable>
-    <binding>
-      <command>nasal</command>
-      <script>
-        autopilot737.vorloc_button_press();
-      </script>   
-    </binding>
-  </action> 
+        <action>
+            <name>Toggle VOR/LOC Mode</name>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>
+                    autopilot737.vorloc_button_press();
+                </script>
+            </binding>
+            <binding>
+                <command>property-assign</command>
+                <property>/autopilot/buttons/vorloc</property>
+                <value>1</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>/autopilot/buttons/vorloc</property>
+                    <value>0</value>
+                </binding>
+            </mod-up>
+        </action>
+    </animation>
 
-    </animation> 
-
-     <animation>
+    <animation>
         <type>pick</type>
         <object-name>SPEED</object-name>
         <visible>1</visible>
-  <action>
-    <name>Toggle SPEED</name>
-   <button>0</button>
-   <repeatable>false</repeatable>
-    <binding>
-      <command>nasal</command>
-      <script>
-        autopilot737.speed_button_press();
-      </script>   
-    </binding>
-  </action>
+        <action>
+            <name>Toggle SPEED</name>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+              <command>nasal</command>
+              <script>
+                autopilot737.speed_button_press();
+            </script>
+            </binding>
+            <binding>
+                <command>property-assign</command>
+                <property>/autopilot/buttons/speed</property>
+                <value>1</value>
+            </binding>
+            <mod-up>
+                <binding>
+                    <command>property-assign</command>
+                    <property>/autopilot/buttons/speed</property>
+                    <value>0</value>
+                </binding>
+            </mod-up>
+        </action>
+    </animation>
 
-    </animation> 
-     
      <animation>
         <type>knob</type>
         <object-name>CPT-COURSE_1</object-name>
@@ -1097,7 +1206,7 @@
         <property>/instrumentation/nav/radials/selected-deg</property>
         <factor>1</factor>
         <min>0</min>
-        <max>360</max>                
+        <max>360</max>
         <wrap>true</wrap>
       </binding>
     </action>
@@ -1124,12 +1233,12 @@
         <property>/instrumentation/nav[1]/radials/selected-deg</property>
         <factor>1</factor>
         <min>0</min>
-        <max>360</max>                
+        <max>360</max>
         <wrap>true</wrap>
       </binding>
     </action>
     </animation>
-    
+
     <animation>
         <type>knob</type>
         <object-name>HDG-SEL</object-name>
@@ -1178,13 +1287,13 @@
         <property>/autopilot/settings/target-altitude-mcp-ft</property>
         <factor>100</factor>
         <min>0</min>
-        <max>50000</max>                
+        <max>50000</max>
         <wrap>false</wrap>
       </binding>
     </action>
-  </animation>   
+  </animation>
 
-<!-- Speed knob control --> 
+<!-- Speed knob control -->
 
     <animation>
         <type>knob</type>
@@ -1214,7 +1323,7 @@
         <command>nasal</command>
         <script>
          autopilot737.speed_increase();
-        </script>   
+        </script>
       </binding>
     </increase>
     <decrease>
@@ -1222,7 +1331,7 @@
         <command>nasal</command>
         <script>
          autopilot737.speed_decrease();
-        </script>   
+        </script>
       </binding>
     </decrease>
     </animation>
@@ -1233,17 +1342,17 @@
         <visible>1</visible>
         <action>
          <button>0</button>
-            <repeatable>true</repeatable>           
-       <binding>   
+            <repeatable>true</repeatable>
+       <binding>
        <command>property-adjust</command>
-       <property>/controls/autoflight/bank-angle-select</property> 
+       <property>/controls/autoflight/bank-angle-select</property>
        <step>5</step>
        <min>0</min>
-       <max>30</max>                
-       <wrap>false</wrap>       
+       <max>30</max>
+       <wrap>false</wrap>
        </binding>
-      </action> 
-    </animation> 
+      </action>
+    </animation>
 
     <animation>
         <type>pick</type>
@@ -1251,18 +1360,18 @@
         <visible>1</visible>
         <action>
          <button>1</button>
-            <repeatable>true</repeatable>           
-       <binding>   
+            <repeatable>true</repeatable>
+       <binding>
        <command>property-adjust</command>
-       <property>/controls/autoflight/bank-angle-select</property> 
+       <property>/controls/autoflight/bank-angle-select</property>
        <step>-5</step>
        <min>0</min>
-       <max>30</max>                
-       <wrap>false</wrap>       
+       <max>30</max>
+       <wrap>false</wrap>
        </binding>
-      </action> 
+      </action>
     </animation>
-                                          
+
 </PropertyList>
 
 
