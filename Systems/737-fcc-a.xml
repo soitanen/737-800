@@ -239,7 +239,7 @@
           <property>/autopilot/internal/GA-ROLL</property>
         </or>
       </condition>
-    </enable>	
+    </enable>
     <input>
       <prop>autopilot/internal/fcca-heading-bug-error-deg</prop>
     </input>
@@ -252,6 +252,23 @@
     <config>
       <Kp>-1.5</Kp>          <!-- proportional gain -->
       <Ki>0.0</Ki>          <!-- integral gain -->
+      <u_min>
+        <condition>
+          <property>/autopilot/internal/LNAV</property>
+        </condition>
+        <expression>
+          <product>
+            <property>/autopilot/internal/lnav-max-bank</property>
+            <value>-1</value>
+          </product>
+        </expression>
+      </u_min> <!-- minimum output clamp -->
+      <u_max>
+        <condition>
+          <property>/autopilot/internal/LNAV</property>
+        </condition>
+        <property>/autopilot/internal/lnav-max-bank</property>
+      </u_max>   <!-- maximum output clamp -->
       <u_min>/autopilot/settings/maximum-bank-neg</u_min> <!-- minimum output clamp -->
       <u_max>/autopilot/settings/maximum-bank</u_max>   <!-- maximum output clamp -->
     </config>

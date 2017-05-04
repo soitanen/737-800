@@ -701,6 +701,8 @@
             </aerosurface_scale>
 
         </channel>
+
+        
         <channel name="Yaw">
 
             <summer name="Rudder Command Sum">
@@ -1392,7 +1394,7 @@
                 </function>
                 <output>external_reactions/reverse-drag-right/magnitude</output>
             </fcs_function>
-
+            
         </channel>
 
     </flight_control>

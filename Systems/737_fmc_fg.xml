@@ -26,7 +26,6 @@
             <name>Flight_complete</name>
         </state>
         <transition>
-            <name>toga</name>
             <source>Preflight</source>
             <target>Takeoff</target>
             <exclude-target type="bool">true</exclude-target>
@@ -35,7 +34,6 @@
             </condition>
         </transition>
         <transition>
-            <name>toga</name>
             <source>Takeoff</source>
             <target>Climb</target>
             <exclude-target type="bool">true</exclude-target>
