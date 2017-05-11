@@ -374,14 +374,20 @@
 
   <filter>
     <type>moving-average</type>
-    <samples>480</samples>
+    <samples>
+      <property>/sim/model-hz</property>
+      <scale>4</scale>
+    </samples>
     <input>/b737/helpers/elevator-cmd-gr-10-pos</input>
     <output>/b737/helpers/elevator-cmd-av-4-pos</output> <!-- average for 4 seconds -->
   </filter>
 
   <filter>
     <type>moving-average</type>
-    <samples>480</samples>
+    <samples>
+      <property>/sim/model-hz</property>
+      <scale>4</scale>
+    </samples>
     <input>/b737/helpers/elevator-cmd-gr-10-neg</input>
     <output>/b737/helpers/elevator-cmd-av-4-neg</output> <!-- average for 4 seconds -->
   </filter>
