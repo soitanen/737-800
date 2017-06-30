@@ -661,7 +661,7 @@
       <file>Aircraft/737-800/Nasal/friction.nas</file>
       <file>Aircraft/737-800/Nasal/liveries.nas</file>
       <file>Aircraft/737-800/Nasal/systems.nas</file>
-	  <file>Aircraft/737-800/Nasal/tire-smoke.nas</file>
+      <file>Aircraft/737-800/Nasal/tire-smoke.nas</file>
     </boeing737>
 
     <autopilot737>

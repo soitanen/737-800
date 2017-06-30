@@ -6,11 +6,10 @@
   </offsets>
   <nasal n="0">
     <load>
-      var liveries = getprop("/sim/liveries-path");
-      var livery_update = aircraft.livery_update.new(liveries,10);
+      var livery_update = aircraft.livery_update.new("Aircraft/737-800/Models/Liveries-800",10);
       </load>
     <unload>
-  livery_update.stop();
+      livery_update.stop();
    </unload>
   </nasal>
   
@@ -47,11 +46,11 @@
   
   <model n="100">
     <name>Cockpit</name>
-    <path>Models/cockpit.xml</path>
+    <path>Aircraft/737-800/Models/cockpit.xml</path>
   </model>
   <model>
     <name>LeftWing</name>
-    <path>Models/LWing.xml</path>
+    <path>Aircraft/737-800/Models/LWing.xml</path>
     <offsets>
       <x-m>0.0</x-m>
       <y-m>0.0</y-m>
@@ -61,7 +60,7 @@
   </model>
   <model n="102">
     <name>NoseGear</name>
-    <path>Models/NoseGear.xml</path>
+    <path>Aircraft/737-800/Models/NoseGear.xml</path>
     <offsets>
       <x-m>0.0</x-m>
       <y-m>0.0</y-m>
@@ -71,7 +70,7 @@
   </model>
   <model>
     <name>Winglet</name>
-    <path>Models/winglet.xml</path>
+    <path>Aircraft/737-800/Models/winglet.xml</path>
     <offsets>
       <x-m>0.0</x-m>
       <y-m>0.0</y-m>
@@ -81,7 +80,7 @@
   </model>
   <model>
     <name>RightWing</name>
-    <path>Models/RWing.xml</path>
+    <path>Aircraft/737-800/Models/RWing.xml</path>
     <offsets>
       <x-m>0.0</x-m>
       <y-m>0.0</y-m>
@@ -91,7 +90,7 @@
   </model>
   <model n="108">
     <name>VertStab</name>
-    <path>Models/VertStab.xml</path>
+    <path>Aircraft/737-800/Models/VertStab.xml</path>
     <offsets>
       <x-m>0.0</x-m>
       <y-m>0.0</y-m>
@@ -101,7 +100,7 @@
   </model>
   <model n="109">
     <name>HorzStab</name>
-    <path>Models/HorzStab.xml</path>
+    <path>Aircraft/737-800/Models/HorzStab.xml</path>
     <offsets>
       <x-m>0.0</x-m>
       <y-m>0.0</y-m>
@@ -115,7 +114,7 @@
   </model>
   <!-- Lights -->
   <model>
-    <path>Models/lights/GreenLight.xml</path>
+    <path>Aircraft/737-800/Models/lights/GreenLight.xml</path>
     <name>Greenlight</name>
     <offsets>
       <x-m> 3.62</x-m>
@@ -124,7 +123,7 @@
     </offsets>
   </model>
   <model>
-    <path>Models/lights/RedLight.xml</path>
+    <path>Aircraft/737-800/Models/lights/RedLight.xml</path>
     <name>Redlight</name>
     <offsets>
       <x-m> 3.62</x-m>
@@ -133,7 +132,7 @@
     </offsets>
   </model>
   <model>
-    <path>Models/lights/flash.xml</path>
+    <path>Aircraft/737-800/Models/lights/flash.xml</path>
     <name>flashright</name>
     <offsets>
       <x-m> 3.62</x-m>
@@ -142,7 +141,7 @@
     </offsets>
   </model>
   <model>
-    <path>Models/lights/flash.xml</path>
+    <path>Aircraft/737-800/Models/lights/flash.xml</path>
     <name>flashleft</name>
     <offsets>
       <x-m> 3.62</x-m>
@@ -151,12 +150,12 @@
     </offsets>
   </model>
   <model n="200">
-    <path>Models/lights/flash.xml</path>
+    <path>Aircraft/737-800/Models/lights/flash.xml</path>
     <name>flashtail</name>
     <!-- offsets are variant specific -->
   </model>
   <model n="201">
-    <path>Models/lights/landinglight.xml</path>
+    <path>Aircraft/737-800/Models/lights/landinglight.xml</path>
     <name>NoseGearLandinglight</name>
     <condition>
       <equals>
@@ -171,7 +170,7 @@
     </offsets>
   </model>
   <model>
-    <path>Models/lights/landinglight.xml</path>
+    <path>Aircraft/737-800/Models/lights/landinglight.xml</path>
     <name>LeftWingLandinglight</name>
     <condition>
       <equals>
@@ -186,7 +185,7 @@
     </offsets>
   </model>
   <model>
-    <path>Models/lights/landinglight.xml</path>
+    <path>Aircraft/737-800/Models/lights/landinglight.xml</path>
     <name>RightWingLandinglight</name>
     <condition>
       <equals>
@@ -201,7 +200,7 @@
     </offsets>
   </model>
   <model>
-    <path>Models/lights/beacon.xml</path>
+    <path>Aircraft/737-800/Models/lights/beacon.xml</path>
     <name>Beaconlight.top</name>
     <offsets>
       <x-m>0.00</x-m>
@@ -210,7 +209,7 @@
     </offsets>
   </model>
   <model n="202">
-    <path>Models/lights/beacon.xml</path>
+    <path>Aircraft/737-800/Models/lights/beacon.xml</path>
     <name>Beaconlight.bottom</name>
     <offsets>
       <!-- offsets are variant-specific -->

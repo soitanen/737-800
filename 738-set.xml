@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<PropertyList include="737-ng-common-set.xml">
+<PropertyList include="737-ng-set-common.xml">
 
 	<sim>
 		<description>Boeing 737-800</description>
-	    <liveries-path type="string">Models/Liveries-800</liveries-path>
+	    <liveries-path type="string">Aircraft/737-800/Models/Liveries-800</liveries-path>
         
 		<aero>738</aero>
     <startup>
@@ -22,8 +22,11 @@
 	    
     </startup>
      
-		<model>
-			<path>Models/738.xml</path>                     
+		<model n="0">
+			<path>Aircraft/737-800/Models/738.xml</path>
+			<livery>
+				<file type="string"/>
+			</livery>                    
 		</model>    
                 
 		<view>
