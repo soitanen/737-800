@@ -22,7 +22,7 @@
 	    
     </startup>
      
-		<model n="0">
+		<model>
 			<path>Aircraft/737-800/Models/738.xml</path>
 			<livery>
 				<file type="string"/>

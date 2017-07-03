@@ -4,7 +4,7 @@
     <z-m>0</z-m> <!-- old value = 0.55 -->
     <pitch-deg>0</pitch-deg> <!-- old value = -1.2-->
   </offsets>
-  <nasal n="0">
+  <nasal>
     <load>
       var livery_update = aircraft.livery_update.new("Aircraft/737-800/Models/Liveries-800",10);
       </load>
@@ -13,7 +13,7 @@
    </unload>
   </nasal>
   
-  <animation n="0">
+  <animation>
     <type>material</type>
     <object-name>fuselage</object-name>
     <object-name>doorLF</object-name>
@@ -44,10 +44,12 @@
     <texture-prop>texture</texture-prop>
   </animation>
   
-  <model n="100">
+  <model>
     <name>Cockpit</name>
+    <usage>interior</usage>
     <path>Aircraft/737-800/Models/cockpit.xml</path>
   </model>
+
   <model>
     <name>LeftWing</name>
     <path>Aircraft/737-800/Models/LWing.xml</path>
@@ -58,7 +60,7 @@
       <pitch-deg>0</pitch-deg>
     </offsets>
   </model>
-  <model n="102">
+  <model>
     <name>NoseGear</name>
     <path>Aircraft/737-800/Models/NoseGear.xml</path>
     <offsets>
@@ -88,7 +90,7 @@
       <pitch-deg>0</pitch-deg>
     </offsets>
   </model>
-  <model n="108">
+  <model>
     <name>VertStab</name>
     <path>Aircraft/737-800/Models/VertStab.xml</path>
     <offsets>
@@ -98,7 +100,7 @@
       <pitch-deg>0</pitch-deg>
     </offsets>
   </model>
-  <model n="109">
+  <model>
     <name>HorzStab</name>
     <path>Aircraft/737-800/Models/HorzStab.xml</path>
     <offsets>
@@ -108,7 +110,7 @@
       <pitch-deg>0</pitch-deg>
     </offsets>
   </model>
-  <model n="110">
+  <model>
     <name>Pushback</name>
     <path>Models\Airport\Pushback\Goldhofert.xml</path>
   </model>
@@ -149,12 +151,12 @@
       <z-m> 1.06</z-m>
     </offsets>
   </model>
-  <model n="200">
+  <model>
     <path>Aircraft/737-800/Models/lights/flash.xml</path>
     <name>flashtail</name>
     <!-- offsets are variant specific -->
   </model>
-  <model n="201">
+  <model>
     <path>Aircraft/737-800/Models/lights/landinglight.xml</path>
     <name>NoseGearLandinglight</name>
     <condition>
@@ -208,7 +210,7 @@
       <z-m>2.56</z-m>
     </offsets>
   </model>
-  <model n="202">
+  <model>
     <path>Aircraft/737-800/Models/lights/beacon.xml</path>
     <name>Beaconlight.bottom</name>
     <offsets>
