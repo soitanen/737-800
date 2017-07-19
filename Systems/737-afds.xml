@@ -127,54 +127,24 @@
     </output>
     <config>
       <Kp>0.1</Kp>          <!-- proportional gain -->
-      <Ki>0.0000001</Ki>          <!-- integral gain -->
-      <u_min>-0.2</u_min> <!-- minimum output clamp -->
-      <u_max>0.2</u_max>   <!-- maximum output clamp -->
+      <Ki>0.00001</Ki>          <!-- integral gain -->
+      <u_min>-0.7</u_min> <!-- minimum output clamp -->
+      <u_max>0.7</u_max>   <!-- maximum output clamp -->
     </config>
   </pi-simple-controller>
-
-  <filter>
-    <name>Target Z acceleration calculator</name>
-    <type>gain</type>
-    <enable>
-      <condition>
-        <property>/autopilot/internal/PITCH-ACTIVE</property>
-      </condition>
-    </enable>	
-    <input>
-      <expression>
-        <sum>
-          <property>/autopilot/settings/target-accel-pitch</property>
-          <div>
-            <value>1</value>
-            <cos>
-              <div>
-                <property>/orientation/roll-deg</property>
-                <value>57.2957795131</value>
-              </div>
-            </cos>
-          </div>
-          <value>-1</value>
-        </sum>
-      </expression>
-    </input>
-    <output>
-      <prop>/autopilot/settings/target-accel</prop>
-    </output>
-  </filter>
 
   <filter> <!-- Max authority calculation -->
     <type>gain</type>
     <input>
       <prop>/instrumentation/airspeed-indicator[0]/indicated-speed-kt</prop>
       <scale>-0.0003623188</scale>
-      <offset>0.182357143</offset>
+      <offset>0.5</offset>
     </input>
     <output>
       <prop>/autopilot/settings/max-authority-pos</prop>
     </output>
     <min>0.059</min>
-    <max>0.143</max>
+    <max>0.4</max>
   </filter>
 
   <filter> <!-- Max authority calculation negative -->
@@ -188,8 +158,41 @@
     </output>
   </filter>
 
+  <!-- Making Cstar based pitch channel -->
+
+  <filter>
+    <type>gain</type>
+    <input>
+      <expression>
+        <div>
+          <value>-1</value>
+          <cos><property>/fdm/jsbsim/attitude/roll-rad</property></cos>
+        </div>
+      </expression>
+    </input>
+    <output>
+      <prop>/autopilot/cstar/gload-compensated</prop>
+    </output>
+    <min>-1.192</min>
+    <max>-1</max>
+  </filter>
+
+  <filter>
+    <type>gain</type>
+    <input>
+      <property>orientation/pitch-rate-degps</property>
+      <scale>0.192</scale>
+      <offset>
+        <property>accelerations/pilot-g</property>
+        <offset>/autopilot/cstar/gload-compensated</offset>
+      </offset>
+    </input>
+    <output>
+      <prop>/autopilot/cstar/c-star</prop>
+    </output>
+  </filter>
+
   <pi-simple-controller>
-    <name>Acceleration comparator</name>
     <enable>
       <condition>
         <and>
@@ -200,80 +203,25 @@
           <property>/autopilot/internal/PITCH-ACTIVE</property>
         </and>
       </condition>
-    </enable>	
+    </enable> 
     <input>
-      <prop>/autopilot/settings/current-accel</prop>
+      <prop>/autopilot/settings/target-accel-pitch</prop>
+      <scale>1</scale>
     </input>
     <reference>
-      <prop>/autopilot/settings/target-accel</prop>
+      <prop>/autopilot/cstar/c-star</prop>
+      <scale>0.5</scale>
     </reference>
     <output>
-      <prop>/autopilot/internal/elevator</prop>
+      <prop>/controls/flight/elevator</prop>
     </output>
     <config>
-      <Kp>-1.2</Kp>          <!-- proportional gain -->
-      <Ki>-0.6</Ki>          <!-- integral gain -->
+      <Kp>/autopilot/cstar/pitch-ki</Kp>          <!-- proportional gain -->
+      <Ki>/autopilot/cstar/pitch-kp</Ki>          <!-- integral gain -->
       <u_min>/autopilot/settings/max-authority-neg</u_min> <!-- minimum output clamp -->
       <u_max>/autopilot/settings/max-authority-pos</u_max>   <!-- maximum output clamp -->
     </config>
   </pi-simple-controller>
-
-  <filter>
-    <type>gain</type>
-    <gain>0.08</gain>
-    <input>
-      <property>/orientation/pitch-rate-degps</property>
-    </input>
-    <output>
-      <prop>/autopilot/internal/elevator-damp</prop>
-    </output>
-  </filter>
-
-  <filter>
-    <name>Elevator signal plus damper summer</name>
-    <type>gain</type>
-    <enable>
-      <condition>
-        <and>
-          <or>
-            <property>/autopilot/internal/CMDA</property>
-            <property>/autopilot/internal/CMDB</property>
-          </or>
-          <property>/autopilot/internal/PITCH-ACTIVE</property>
-        </and>
-      </condition>
-    </enable>	
-    <input>
-      <expression>
-        <sum>
-          <property>/autopilot/internal/elevator-damp</property>
-          <property>/autopilot/internal/elevator</property>
-        </sum>
-      </expression>
-    </input>
-    <output>
-      <prop>/controls/flight/elevator</prop>
-    </output>
-  </filter>
-
-  <!-- helper which calculates current acceleration -->
-  <filter>
-    <type>gain</type>
-    <input>
-      <expression>
-        <product>
-          <sum>
-            <property>/accelerations/n-z-cg-fps_sec</property>
-            <value>1</value>
-          </sum>
-          <value>-1</value>
-        </product>
-      </expression>
-    </input>
-    <output>
-      <prop>/autopilot/settings/current-accel</prop>
-    </output>
-  </filter>
 
   <!--
   ============================
@@ -1102,6 +1050,8 @@
 
 <!-- State machine part -->
 
+<!-- AUTOTHROTTLE -->
+
   <filter> <!-- physical and logical throttle levers difference-->
     <type>gain</type>
     <input>
@@ -1120,6 +1070,7 @@
   </filter>
 
   <state-machine>
+
     <branch>/autopilot/at</branch>
     <state>
       <name>OFF</name>
@@ -1151,6 +1102,7 @@
     <state>
       <name>regain off</name>
     </state>
+
     <transition>
       <source>OFF</source>
       <target>ARM</target>
@@ -1158,6 +1110,7 @@
         <property>/autopilot/internal/SPD</property>
       </condition>
     </transition>
+
     <transition>
       <source>ARM</source>
       <source>MCP SPD</source>
@@ -1172,6 +1125,7 @@
         <not><property>/autopilot/internal/SPD</property></not>
       </condition>
     </transition>
+
     <transition>
       <source>regain off</source>
       <target>OFF</target>
@@ -1182,6 +1136,7 @@
         </less-than>
       </condition>
     </transition>
+
     <transition>
       <source>ARM</source>
       <target>MCP SPD</target>
@@ -1194,6 +1149,7 @@
         <value>0</value>
       </binding>
     </transition>
+
     <transition>
       <source>MCP SPD</source>
       <target>regain arm</target>
@@ -1203,6 +1159,39 @@
       <binding>
         <command>property-assign</command>
         <property>/autopilot/buttons/speed</property>
+        <value>0</value>
+      </binding>
+    </transition>
+
+  </state-machine>
+
+<!-- ROLL CHANNEL -->
+
+  <state-machine>
+    
+    <branch>/autopilot/fcc-a-roll-servo</branch>
+    <state>
+      <name>OFF</name>
+    </state>
+    <state>
+      <name>CMD</name>
+    </state>
+    <state>
+      <name>CWS-forced</name>
+    </state>
+    <state>
+      <name>CWS-temp</name>
+    </state>
+
+    <transition>
+      <source>OFF</source>
+      <target>CMD</target>
+      <condition>
+        <property>/autopilot/buttons/cmda</property>
+      </condition>
+      <binding>
+        <command>property-assign</command>
+        <property>/autopilot/buttons/cmda</property>
         <value>0</value>
       </binding>
     </transition>

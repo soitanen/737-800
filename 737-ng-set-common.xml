@@ -525,17 +525,30 @@
       <speed-co type="bool">0</speed-co>
       <cmda type="bool">0</cmda>
       <cmdb type="bool">0</cmdb>
+      <cwsa type="bool">0</cwsa>
+      <cwsb type="bool">0</cwsb>
       <n1 type="bool">0</n1>
       <lvlchg type="bool">0</lvlchg>
       <althld type="bool">0</althld>
       <vs type="bool">0</vs>
       <hdgsel type="bool">0</hdgsel>
       <lnav type="bool">0</lnav>
+      <vnav type="bool">0</vnav>
       <app type="bool">0</app>
       <vorloc type="bool">0</vorloc>
     </buttons>
 
+    <cstar>
+      <pitch-ki type="double">0.5</pitch-ki>
+      <pitch-kp type="double">1.5</pitch-kp>
+      <gload-compensated type="double">-1</gload-compensated>
+
+      <c-star type="double">0</c-star>
+    </cstar>
+
   </autopilot>
+
+  
 
   <controls>
 
