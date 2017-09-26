@@ -36,8 +36,15 @@ var canvas_upperEICAS = {
 		foreach(var key; svg_keys) {
 			m[key] = upperEICAS.getElementById(key);
 		}
+		m.timers = [];
 
 		return m;
+	},
+	newMFD: func()
+	{
+		me.update_timer = maketimer(0.04, func me.update() );
+		
+		me.update_timer.start();
 	},
 	update: func()
 	{
@@ -160,8 +167,6 @@ var canvas_upperEICAS = {
 				me["engine1rev"].setColor(0,1,0);
 			}
 		}
-
-		settimer(func me.update(), 0.04);
 	},
 };
 
@@ -175,7 +180,8 @@ setlistener("sim/signals/fdm-initialized", func() {
 	upperEICAS_display.addPlacement({"node": "upperEICASScreen"});
 	var group = upperEICAS_display.createGroup();
 	upperEICAS_canvas = canvas_upperEICAS.new(group);
-	upperEICAS_canvas.update();
+	upperEICAS_canvas.newMFD();
+	#upperEICAS_canvas.update();
 });
 
 #setlistener("sim/signals/reinit", func upperEICAS_display.del());
