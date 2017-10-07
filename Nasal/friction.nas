@@ -62,9 +62,7 @@ for (var i = 0; i < points_of_contact; i += 1) {
     append(point_info, { g: g, x: x, y: y, z: z, zs: zs, s: s, d: d, r: r });
 }
 
-
 var update_reactions = func {
-    settimer(update_reactions, 0.1);
 
     if (getprop("fdm/jsbsim/position/h-agl-ft") > 100)
         return;
@@ -158,4 +156,6 @@ var update_reactions = func {
 }
 
 setprop("sim/fdm/surface/override-level", 1);
-update_reactions();
+
+var update_timer_friction = maketimer(0.1, func update_reactions() );
+update_timer_friction.start();
