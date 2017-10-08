@@ -784,6 +784,7 @@ var canvas_PFD = {
 		}
 
 		var pitchChange = getprop("/autopilot/display/pitch-mode-rectangle");
+		#if ( pitchChange != me["pitchModeChange"].getVisible() ) me["pitchModeChange"].toggleVisibility();
 		if ( pitchChange == 1 ) {
 			me["pitchModeChange"].show();
 		} else {
@@ -986,7 +987,7 @@ var canvas_PFD = {
 	},
 };
 
-setlistener("sim/signals/fdm-initialized", func() {
+var _list = setlistener("sim/signals/fdm-initialized", func() {
 	pfd_display = canvas.new({
 		"name": "PFD",
 		"size": [1024, 1024],
@@ -997,6 +998,8 @@ setlistener("sim/signals/fdm-initialized", func() {
 	var group = pfd_display.createGroup();
 	pfd_canvas = canvas_PFD.new(group);
 	pfd_canvas.newMFD();
+
+	removelistener(_list); # run ONCE
 });
 
 #setlistener("sim/signals/reinit", func pfd_display.del());
