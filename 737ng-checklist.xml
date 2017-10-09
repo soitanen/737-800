@@ -1,185 +1,249 @@
 <?xml version="1.0"?>
 <PropertyList>
   <checklist>
-    <title>Before Start</title>
+    <title>PREFLIGHT</title>
     <item>
-      <name>Flight Deck Door</name>
-      <value>CLOSED AND LOCKED</value>
+      <name>Oxygen</name>
+      <value>Tested, 100%</value>
     </item>
     <item>
-      <name>N1 bugs</name>
-      <value>CHECK</value>
+      <name>Navigation transfer and display switches</name>
+      <value>NORMAL, AUTO</value>
     </item>
     <item>
-      <name>IAS bugs</name>
-      <value>SET</value>
-    </item>
-    <item>
-      <name>MCP</name>
-      <value>SET</value>
-    </item>
-    <item>
-      <name>Auto-throttle ARM switch</name>
-      <value>ARM</value>
-    </item>
-    <item>
-      <name>IAS/Mach Selector</name>
-      <value>SET V2</value>
-    </item>
-    <item>
-      <name>Arm LNAV</name>
-      <value>AS NEEDED</value>
-    </item>
-    <item>
-      <name>Initial heading</name>
-      <value>SET</value>
-    </item>
-    <item>
-      <name>Initial altitude</name>
-      <value>SET</value>
-    </item>
-    <item>
-      <name>Exterior Doors</name>
-      <value>VERIFY CLOSED</value>
-    </item>
-    <item>
-      <name>Start Clearance</name>
-      <value>OBTAIN</value>
-    </item>
-    <item>
-      <name>Anti-collions Light</name>
+      <name>Window heat</name>
       <value>ON</value>
     </item>
     <item>
-      <name>Set takeoff trim</name>
-      <value>IN GREEN BAND</value>
+      <name>Pressurization mode selector</name>
+      <value>AUTO</value>
     </item>
     <item>
-      <name>Autobrake</name>
-      <value>RTO</value>
+      <name>Flight instruments</name>
+      <value>Heading ___, Altimeter ___</value>
     </item>
     <item>
       <name>Parking brake</name>
+      <value>Set</value>
+    </item>
+    <item>
+      <name>Engine start levers</name>
+      <value>CUTOFF</value>
+    </item>
+  </checklist>
+  <checklist>
+    <title>BEFORE START</title>
+    <item>
+      <name>Flight deck door</name>
+      <value>Closed and locked</value>
+    </item>
+    <item>
+      <name>Fuel</name>
+      <value>___ LBS/KGS, Pumps ON</value>
+    </item>
+    <item>
+      <name>Passenger signs</name>
+      <value>___</value>
+    </item>
+    <item>
+      <name>Windows</name>
+      <value>Locked</value>
+    </item>
+    <item>
+      <name>MCP</name>
+      <value>V2 ___, HEADING ___, ALTITUDE ___</value>
+    </item>
+    <item>
+      <name>Takeoff speeds</name>
+      <value>V1 ___, VR ___, V2 ___</value>
+    </item>
+    <item>
+      <name>CDU preflight</name>
+      <value>Completed</value>
+    </item>
+    <item>
+      <name>Rudder and aileron trim</name>
+      <value>Free and 0</value>
+    </item>
+    <item>
+      <name>Taxi and takeoff briefing</name>
+      <value>Completed</value>
+    </item>
+    <item>
+      <name>Anti collision light</name>
       <value>ON</value>
     </item>
   </checklist>
   <checklist>
-    <title>Engine Start</title>
+    <title>BEFORE TAXI</title>
     <item>
-      <name>A/C pack switches</name>
-      <value>OFF</value>
+      <name>Generators</name>
+      <value>On</value>
     </item>
     <item>
-      <name>ENGINE START switch</name>
-      <value>GRD</value>
+      <name>Probe heat</name>
+      <value>On</value>
     </item>
     <item>
-      <name>Verify N2 increase</name>
-      <value/>
+      <name>Anti-ice</name>
+      <value>___</value>
     </item>
     <item>
-      <name>Engine start lever</name>
-      <value>IDLE</value>
-    </item>
-  </checklist>
-  <checklist>
-    <title>Before Taxi</title>
-    <item>
-      <name>Generator 1 and 2 switches</name>
-      <value>ON</value>
-    </item>
-    <item>
-      <name>Probe heat switches</name>
-      <value>ON</value>
-    </item>
-    <item>
-      <name>Wing anti-ice</name>
-      <value>AS NEEDED</value>
-    </item>
-    <item>
-      <name>Engine anti-ice</name>
-      <value>AS NEEDED</value>
-    </item>
-    <item>
-      <name>APU switch</name>
-      <value>OFF</value>
-    </item>
-    <item>
-      <name>Yaw damper</name>
-      <value>ON</value>
+      <name>Isolation valve</name>
+      <value>AUTO</value>
     </item>
     <item>
       <name>Engine start switches</name>
       <value>CONT</value>
     </item>
     <item>
-      <name>Engine start levers</name>
-      <value>IDLE</value>
+      <name>Recall</name>
+      <value>Checked</value>
     </item>
     <item>
-      <name>Takeoff flaps</name>
-      <value>SET</value>
+      <name>Autobrake</name>
+      <value>RTO</value>
+    </item>
+    <item>
+      <name>Engine start levers</name>
+      <value>IDLE detent</value>
     </item>
     <item>
       <name>Flight controls</name>
-      <value>CHECK</value>
+      <value>Checked</value>
     </item>
     <item>
-      <name>Transponder</name>
-      <value>AS NEEDED</value>
+      <name>Ground equipment</name>
+      <value>Clear</value>
     </item>
   </checklist>
   <checklist>
-    <title>Before Takeoff</title>
+    <title>BEFORE TAKEOFF</title>
     <item>
-      <name>Taxi lights</name>
-      <value>OFF</value>
+      <name>Flaps</name>
+      <value>___, Green light</value>
     </item>
     <item>
-      <name>Lights</name>
+      <name>Stabilizer trim</name>
+      <value>___ Units</value>
+    </item>
+  </checklist>
+  <checklist>
+    <title>AFTER TAKEOFF</title>
+    <item>
+      <name>Engine bleeds</name>
       <value>ON</value>
     </item>
     <item>
-      <name>Position light</name>
-      <value>STROBE</value>
-    </item>
-  </checklist>
-  <checklist>
-    <title>After Takeoff</title>
-    <item>
-      <name>Lights</name>
-      <value>OFF</value>
-    </item>
-    <item>
-      <name>Autobrake</name>
-      <value>OFF</value>
-    </item>
-  </checklist>
-  <checklist>
-    <title>Descent / Approach</title>
-    <item>
-      <name>Anti-ice</name>
-      <value>AS REQUIRED</value>
-    </item>
-    <item>
-      <name>Autobrake</name>
-      <value>SET</value>
-    </item>
-  </checklist>
-  <checklist>
-    <title>Before landing</title>
-    <item>
-      <name>Speedbrake</name>
-      <value>SET</value>
+      <name>Packs</name>
+      <value>AUTO</value>
     </item>
     <item>
       <name>Landing gear</name>
-      <value>DOWN</value>
-      <value>THREE GREEN</value>
+      <value>UP and OFF</value>
     </item>
     <item>
-      <name>Start switches</name>
-      <value>ON</value>
+      <name>Flaps</name>
+      <value>UP, No lights</value>
+    </item>
+  </checklist>
+  <checklist>
+    <title>DESCENT</title>
+    <item>
+      <name>Pressurization</name>
+      <value>LAND ALT ___</value>
+    </item>
+    <item>
+      <name>Recall</name>
+      <value>Checked</value>
+    </item>
+    <item>
+      <name>Autobrake</name>
+      <value>___</value>
+    </item>
+    <item>
+      <name>Landing data</name>
+      <value>VREF ___, Minimums ___</value>
+    </item>
+    <item>
+      <name>Approach briefing</name>
+      <value>Completed</value>
+    </item>
+  </checklist>
+  <checklist>
+    <title>APPROACH</title>
+    <item>
+      <name>Altimeters</name>
+      <value>___</value>
+    </item>
+  </checklist>
+  <checklist>
+    <title>LANDING</title>
+    <item>
+      <name>Engine start switches</name>
+      <value>CONT</value>
+    </item>
+    <item>
+      <name>Speedbrake</name>
+      <value>ARMED</value>
+    </item>
+    <item>
+      <name>Landing gear</name>
+      <value>Down</value>
+    </item>
+    <item>
+      <name>Flaps</name>
+      <value>___, Green light</value>
+    </item>
+  </checklist>
+  <checklist>
+    <title>SHUTDOWN</title>
+    <item>
+      <name>Fuel pumps</name>
+      <value>OFF</value>
+    </item>
+    <item>
+      <name>Probe heat</name>
+      <value>OFF</value>
+    </item>
+    <item>
+      <name>Hydraulic panel</name>
+      <value>Set</value>
+    </item>
+    <item>
+      <name>Flaps</name>
+      <value>UP</value>
+    </item>
+    <item>
+      <name>Parking brake</name>
+      <value>___</value>
+    </item>
+    <item>
+      <name>Engine start levers</name>
+      <value>CUTOFF</value>
+    </item>
+    <item>
+      <name>Weather radar</name>
+      <value>Off</value>
+    </item>
+  </checklist>
+  <checklist>
+    <title>SECURE</title>
+    <item>
+      <name>IRSs</name>
+      <value>OFF</value>
+    </item>
+    <item>
+      <name>Emergency exit lights</name>
+      <value>OFF</value>
+    </item>
+    <item>
+      <name>Window heat</name>
+      <value>OFF</value>
+    </item>
+    <item>
+      <name>Packs</name>
+      <value>OFF</value>
     </item>
   </checklist>
 </PropertyList>
