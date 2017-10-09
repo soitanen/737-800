@@ -972,7 +972,8 @@ var canvas_PFD = {
 		}
 		var navId = getprop("instrumentation/nav[0]/nav-id");
 		var navFrq = getprop("instrumentation/nav[0]/frequencies/selected-mhz-fmt") or 0;
-		if (navId == "" or navId == nil) {
+		var navInRange = getprop("instrumentation/nav[0]/in-range");
+		if (navId == "" or navId == nil or navInRange == 0) {
 			me["ilsId"].setText(sprintf("%s /%03d°",navFrq,getprop("instrumentation/nav/radials/selected-deg")));
 		} else {
 			me["ilsId"].setText(sprintf("%s /%03d°",navId,getprop("instrumentation/nav/radials/selected-deg")));
