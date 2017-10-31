@@ -128,8 +128,8 @@
     <config>
       <Kp>0.1</Kp>          <!-- proportional gain -->
       <Ki>0.00001</Ki>          <!-- integral gain -->
-      <u_min>-0.7</u_min> <!-- minimum output clamp -->
-      <u_max>0.7</u_max>   <!-- maximum output clamp -->
+      <u_min>-0.5</u_min> <!-- minimum output clamp -->
+      <u_max>0.5</u_max>   <!-- maximum output clamp -->
     </config>
   </pi-simple-controller>
 
@@ -144,7 +144,7 @@
       <prop>/autopilot/settings/max-authority-pos</prop>
     </output>
     <min>0.059</min>
-    <max>0.4</max>
+    <max>0.2</max>
   </filter>
 
   <filter> <!-- Max authority calculation negative -->

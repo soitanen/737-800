@@ -298,6 +298,15 @@ var canvas_PFD = {
 		me["compassSNmbr4"].setText(sprintf("%0.0f", SNmbr4));
 		me["compassSNmbr5"].setText(sprintf("%0.0f", SNmbr5));
 		me["compassSNmbr6"].setText(sprintf("%0.0f", SNmbr6));
+		me["compassLNmbr1"].update();
+		me["compassLNmbr2"].update();
+		me["compassLNmbr3"].update();
+		me["compassSNmbr1"].update();
+		me["compassSNmbr2"].update();
+		me["compassSNmbr3"].update();
+		me["compassSNmbr4"].update();
+		me["compassSNmbr5"].update();
+		me["compassSNmbr6"].update();
 			
 		# Flight director
 		if (getprop("/instrumentation/flightdirector/fd-left-on") == 1) {
@@ -386,6 +395,7 @@ var canvas_PFD = {
 			var curAltDig1Add = 0;
 		}
 		me["curAltDig1"].setTranslation(0,curAltDig1Add*64/20);
+		me["curAltDig1"].update();
 		
 		if (alt > 0) {
 			me["curAltDig2High"].setText(sprintf("%1.0f",math.fmod(math.floor(alt/1000)+1,10)));
@@ -402,6 +412,7 @@ var canvas_PFD = {
 			var curAltDig2Add = 0;
 		}
 		me["curAltDig2"].setTranslation(0,curAltDig2Add*64/20);
+		me["curAltDig2"].update();
 
 		if (alt > 0) {
 			me["curAltDig3High"].setText(sprintf("%1.0f",math.fmod(math.floor(alt/100)+1,10)));
@@ -418,6 +429,7 @@ var canvas_PFD = {
 			var curAltDig3Add = 0;
 		}
 		me["curAltDig3"].setTranslation(0,curAltDig3Add*59/20);
+		me["curAltDig3"].update();
 
 		var altR20 = roundToNearest(alt, 20);
 		me["curAltDig45High2"].setText(sprintf("%02d",math.mod(math.abs(altR20+20),100)));
@@ -425,6 +437,7 @@ var canvas_PFD = {
 		me["curAltDig45Low1"].setText(sprintf("%02d",math.mod(math.abs(altR20-20),100)));
 		me["curAltDig45Low2"].updateText(sprintf("%02d",math.mod(math.abs(altR20-40),100)));
 		me["curAltDig45"].setTranslation(0,((alt - altR20)/20*36.31));
+		me["curAltDig45"].update();
 
 		me["curAltMtrTxt"].setText(sprintf("%4.0f",alt*FT2M));
 		
