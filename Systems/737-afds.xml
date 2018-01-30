@@ -935,10 +935,10 @@
   <logic>
     <enable>
       <condition>
-        <or>
+        <and>
           <property>/autopilot/internal/CMDA</property>
           <property>/autopilot/internal/CMDB</property>
-        </or>
+        </and>
       </condition>
     </enable>
     <input>
