@@ -587,7 +587,11 @@ var canvas_PFD = {
 
 		if (fpv) {
 			me["fpv"].show();
-			me["fpv"].setTranslation((track-hdg)*11,(pitch-path)*11.4625)
+			var drift = (track - hdg) * 11; # 11 - coefficient for pixel translation in horizontal
+			var fpvAngle = (pitch - path) * 11.4625; # 11.4625 - coefficient for pixel translation in vertical
+			var cosRoll = math.cos(roll * D2R);
+			var sinRoll = math.sin(roll * D2R);
+			me["fpv"].setTranslation(drift * cosRoll + fpvAngle * sinRoll, fpvAngle * cosRoll - drift * sinRoll);
 		} else {
 			me["fpv"].hide();
 		}

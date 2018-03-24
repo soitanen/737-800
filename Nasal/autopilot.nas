@@ -1070,49 +1070,52 @@ setlistener("/autopilot/internal/GA", ga_speed_round, 0, 0);
 ##########################################################################
 # Calculating turn anticipation distance
 var turn_anticipate = func {
-if (getprop("/autopilot/internal/LNAV")){
-	var gnds_mps = getprop("/instrumentation/gps/indicated-ground-speed-kt") * 0.5144444444444;
-	var tas_mps = getprop("/instrumentation/airspeed-indicator/true-speed-kt") * 0.5144444444444;
+    if (getprop("/autopilot/internal/LNAV")) {
 
-	var wind_from_true = getprop("/environment/wind-from-heading-deg");
-	var wind_mps = getprop("/environment/wind-speed-kt") * 0.51444444444;
-	var track_true = getprop("/orientation/track-deg");
-	var wind_angle_rad = geo.normdeg180(wind_from_true + 180 - track_true)/57.2957795131;
-	var tailwind = math.cos(wind_angle_rad) * wind_mps;
-	var crosswind = math.sin(wind_angle_rad) * wind_mps;
-	var current_course = getprop("/instrumentation/gps/wp/leg-true-course-deg");
-	var wp_dist = getprop("/autopilot/route-manager/wp/dist");
-	var wp_fly_to = getprop("/autopilot/route-manager/current-wp") + 1;
-	if (wp_fly_to < 0) wp_fly_to = 0;
-	var next_course = getprop("/autopilot/route-manager/route/wp["~wp_fly_to~"]/leg-bearing-true-deg");
-	var max_bank_limit = getprop("/autopilot/settings/maximum-bank-limit");
-	if (max_bank_limit > 23) max_bank_limit = 23;
+        var gnds_mps = getprop("/instrumentation/gps/indicated-ground-speed-kt") * 0.5144444444444; ## 100303 DataVTrueKtgs
+        var tas_mps = getprop("/instrumentation/airspeed-indicator/true-speed-kt") * 0.5144444444444; ## 100302 DataVTas
 
-	var delta_angle = geo.normdeg180(next_course - current_course);
-	if (delta_angle == 0) delta_angle = 0.0000000000000001;
-	var max_bank = math.abs(delta_angle) * 0.5;
-	if (max_bank > max_bank_limit) max_bank = max_bank_limit;
-	var radius = (tas_mps * tas_mps) / (9.81 * math.tan(max_bank/57.2957795131));
-	var turn_time_sec = radius * math.abs(delta_angle) / (57.2957795131 * tas_mps);
+        var wind_from_true = getprop("/environment/wind-from-heading-deg"); ## 100504 DataWindDir
+        var wind_mps = getprop("/environment/wind-speed-kt") * 0.51444444444;
+        var track_true = getprop("/orientation/track-deg");
+        var wind_angle_rad = geo.normdeg180(wind_from_true + 180 - track_true) / 57.2957795131;
+        var tailwind = math.cos(wind_angle_rad) * wind_mps;
+        var crosswind = math.sin(wind_angle_rad) * wind_mps;
+        var current_course = getprop("/instrumentation/gps/wp/leg-true-course-deg");
+        var wp_dist = getprop("/autopilot/route-manager/wp/dist");
+        var wp_fly_to = getprop("/autopilot/route-manager/current-wp") + 1;
+        if (wp_fly_to < 0) wp_fly_to = 0;
+        var next_course = getprop("/autopilot/route-manager/route/wp["~wp_fly_to~"]/leg-bearing-true-deg");
+        var max_bank_limit = getprop("/autopilot/settings/maximum-bank-limit");
+        if (max_bank_limit > 23) max_bank_limit = 23;
 
-	var dta_tail = turn_time_sec * tailwind;
-	var dta_cross = turn_time_sec * (math.cos(delta_angle/57.2957795131)/math.sin(delta_angle/57.2957795131)) * crosswind;
+        var delta_angle = geo.normdeg180(next_course - current_course);
+        if (delta_angle == 0) delta_angle = 0.0000000000000001;
+        var max_bank = math.abs(delta_angle) * 0.5;
+        if (max_bank > max_bank_limit) max_bank = max_bank_limit;
+        var radius = (tas_mps * tas_mps) / (9.81 * math.tan(max_bank / 57.2957795131));
+        var turn_time_sec = radius * math.abs(delta_angle) / (57.2957795131 * tas_mps);
 
-	var wind_dist_m = wind_mps * turn_time_sec;
-	var turn_dist = (radius * math.tan(math.abs(delta_angle)/114.5915590262) + max_bank * gnds_mps / 4 + dta_tail - dta_cross) / 1852;
-	var dist_1sec_flight = (gnds_mps * 1.1) / 1852 + turn_dist;
+        var dta_tail = turn_time_sec * tailwind;
+        var dta_cross = turn_time_sec * (math.cos(delta_angle / 57.2957795131) / math.sin(delta_angle / 57.2957795131)) * crosswind;
 
-	if (wp_dist < dist_1sec_flight and wp_dist > turn_dist)
-	{
-		setprop("/autopilot/internal/lnav-max-bank", max_bank);
-		setprop("/autopilot/internal/wp-change-check-period", turn_time_sec + max_bank / 4);
-		settimer(func {setprop("/autopilot/internal/lnav-max-bank", 23);}, turn_time_sec + max_bank / 2);
-	}
+        var wind_dist_m = wind_mps * turn_time_sec;
+        var turn_dist = (radius * math.tan(math.abs(delta_angle) / 114.5915590262) + max_bank * gnds_mps / 4 + dta_tail - dta_cross) / 1852;
+        var dist_1sec_flight = (gnds_mps * 1.1) / 1852 + turn_dist;
 
-	setprop("/instrumentation/gps/config/over-flight-distance-nm", turn_dist);
+        if (wp_dist < dist_1sec_flight and wp_dist > turn_dist) {
+            setprop("/autopilot/internal/lnav-max-bank", max_bank);
+            setprop("/autopilot/internal/wp-change-check-period", turn_time_sec + max_bank / 4);
 
-	settimer(turn_anticipate, 1);
-}
+            settimer(func { 
+                setprop("/autopilot/internal/lnav-max-bank", 23); 
+            }, turn_time_sec + max_bank / 2);
+        }
+        
+        setprop("/instrumentation/gps/config/over-flight-distance-nm", turn_dist);
+        
+        settimer(turn_anticipate, 1);
+    }
 }
 setlistener("/autopilot/internal/LNAV", turn_anticipate, 0, 0);
 
